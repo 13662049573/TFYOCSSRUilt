@@ -10,6 +10,3 @@
 #endif
 #endif
 
-#define HAVE_CONFIG_H 1
-#define USE_CRYPTO_MBEDTLS 1
-#define MBEDTLS_CONFIG_FILE <mbedtls/mbedtls_config.h>

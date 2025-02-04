@@ -73,22 +73,19 @@ Pod::Spec.new do |spec|
     
     ss.pod_target_xcconfig = {
       'HEADER_SEARCH_PATHS' => [
-        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"'
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"',
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"'
       ].join(' '),
       'GCC_PREPROCESSOR_DEFINITIONS' => [
         'HAVE_CONFIG_H=1',
         'USE_CRYPTO_MBEDTLS=1',
-        'MBEDTLS_CONFIG_FILE=\\"mbedtls/mbedtls_config.h\\"'
-      ].join(' ')
+        'MBEDTLS_CONFIG_FILE=<mbedtls/mbedtls_config.h>'
+      ].join(' '),
+      'OTHER_CFLAGS' => '-include "${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls/mbedtls_config.h"'
     }
     
-    # 添加预编译头文件
-    ss.prefix_header_contents = <<-EOS
-      #define HAVE_CONFIG_H 1
-      #define USE_CRYPTO_MBEDTLS 1
-      #define MBEDTLS_CONFIG_FILE <mbedtls/mbedtls_config.h>
-    EOS
+    ss.preserve_paths = 'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**'
   end
   
   spec.subspec 'Privoxy' do |ss|
@@ -106,15 +103,15 @@ Pod::Spec.new do |spec|
     'HEADER_SEARCH_PATHS' => [
       '$(inherited)',
       '"${PODS_ROOT}/Headers/Public"',
-      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
-      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"',
-      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libsodium/include"',
-      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit"'
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libsodium/include"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit"'
     ].join(' '),
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"',
-    'USER_HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"'
+    'USER_HEADER_SEARCH_PATHS' => '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"'
   }
 
   # 全局编译标志
@@ -131,8 +128,8 @@ Pod::Spec.new do |spec|
     'CLANG_ENABLE_MODULES' => 'NO',
     'HEADER_SEARCH_PATHS' => [
       '$(inherited)',
-      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"'
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"'
     ].join(' ')
   }
 
