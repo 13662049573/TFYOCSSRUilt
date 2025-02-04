@@ -10,3 +10,5 @@
 #endif
 #endif
 
+#define HAVE_CONFIG_H 1
+#define USE_CRYPTO_MBEDTLS 1

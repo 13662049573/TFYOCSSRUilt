@@ -67,14 +67,30 @@ Pod::Spec.new do |spec|
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedtls.a",
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
     ]
+    
+    # 添加依赖
     ss.dependency 'TFYOCSSRKit/libopenssl'
     ss.dependency 'TFYOCSSRKit/libsodium'
+    
+    # 修改头文件搜索路径和编译配置
     ss.pod_target_xcconfig = {
       'HEADER_SEARCH_PATHS' => [
         '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"'
+        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"',
+        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
+        '"$(PODS_ROOT)/Headers/Public/TFYOCSSRKit"'
+      ].join(' '),
+      'GCC_PREPROCESSOR_DEFINITIONS' => [
+        'HAVE_CONFIG_H=1',
+        'USE_CRYPTO_MBEDTLS=1'
       ].join(' ')
     }
+    
+    # 添加预编译头文件
+    ss.prefix_header_contents = <<-EOS
+      #define HAVE_CONFIG_H 1
+      #define USE_CRYPTO_MBEDTLS 1
+    EOS
   end
   
   spec.subspec 'Privoxy' do |ss|
@@ -87,29 +103,38 @@ Pod::Spec.new do |spec|
   # 添加依赖
   spec.frameworks = "Foundation", "UIKit"
 
-  # 修改编译设置，添加所有必要的头文件搜索路径
+  # 修改全局编译设置
   spec.xcconfig = {
     'HEADER_SEARCH_PATHS' => [
       '$(inherited)',
       '"${PODS_ROOT}/Headers/Public"',
       '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
       '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"',
       '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libsodium/include"',
       '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit"'
     ].join(' '),
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
-    'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"'
+    'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"',
+    'USER_HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"'
   }
 
-  # 添加编译标志
+  # 全局编译标志
   spec.pod_target_xcconfig = { 
-    'OTHER_CFLAGS' => '-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL',
+    'OTHER_CFLAGS' => '-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL -DUSE_CRYPTO_MBEDTLS',
     'GCC_PREPROCESSOR_DEFINITIONS' => [
       'HAVE_CONFIG_H=1',
       'USE_CRYPTO_OPENSSL=1',
+      'USE_CRYPTO_MBEDTLS=1',
       'LIB_ONLY=1',
       'UDPRELAY_LOCAL=1',
       'MODULE_LOCAL=1'
+    ].join(' '),
+    'CLANG_ENABLE_MODULES' => 'NO',
+    'HEADER_SEARCH_PATHS' => [
+      '$(inherited)',
+      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"'
     ].join(' ')
   }
 
