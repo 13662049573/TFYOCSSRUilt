@@ -75,7 +75,9 @@ Pod::Spec.new do |spec|
       'HEADER_SEARCH_PATHS' => [
         '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
         '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"'
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src"'
       ].join(' '),
       'GCC_PREPROCESSOR_DEFINITIONS' => [
         'HAVE_CONFIG_H=1',
@@ -85,7 +87,10 @@ Pod::Spec.new do |spec|
       'OTHER_CFLAGS' => '-include "${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls/mbedtls_config.h"'
     }
     
-    ss.preserve_paths = 'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**'
+    ss.preserve_paths = [
+      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**',
+      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include/**'
+    ]
   end
   
   spec.subspec 'Privoxy' do |ss|
@@ -105,13 +110,17 @@ Pod::Spec.new do |spec|
       '"${PODS_ROOT}/Headers/Public"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libsodium/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit"'
     ].join(' '),
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"',
-    'USER_HEADER_SEARCH_PATHS' => '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"'
+    'USER_HEADER_SEARCH_PATHS' => [
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"'
+    ].join(' ')
   }
 
   # 全局编译标志

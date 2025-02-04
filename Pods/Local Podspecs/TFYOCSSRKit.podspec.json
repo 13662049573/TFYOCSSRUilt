@@ -25,10 +25,10 @@
     "UIKit"
   ],
   "xcconfig": {
-    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Public\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libsodium/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit\"",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Public\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libsodium/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit\"",
     "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
     "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/**\"",
-    "USER_HEADER_SEARCH_PATHS": "\"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\""
+    "USER_HEADER_SEARCH_PATHS": "\"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include\""
   },
   "pod_target_xcconfig": {
     "OTHER_CFLAGS": "-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL -DUSE_CRYPTO_MBEDTLS",
@@ -80,11 +80,14 @@
         "TFYOCSSRKit/libsodium": []
       },
       "pod_target_xcconfig": {
-        "HEADER_SEARCH_PATHS": "\"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\"",
+        "HEADER_SEARCH_PATHS": "\"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src\"",
         "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_CONFIG_H=1 USE_CRYPTO_MBEDTLS=1 MBEDTLS_CONFIG_FILE=<mbedtls/mbedtls_config.h>",
         "OTHER_CFLAGS": "-include \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls/mbedtls_config.h\""
       },
-      "preserve_paths": "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**"
+      "preserve_paths": [
+        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**",
+        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include/**"
+      ]
     },
     {
       "name": "Privoxy",

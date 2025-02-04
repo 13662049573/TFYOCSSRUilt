@@ -10,7 +10,7 @@
 #ifndef LIBCORK_CORE_API_H
 #define LIBCORK_CORE_API_H
 
-#include <libcork/config.h>
+#include <libcork/libcork_config.h>
 #include <libcork/core/attributes.h>
 
 

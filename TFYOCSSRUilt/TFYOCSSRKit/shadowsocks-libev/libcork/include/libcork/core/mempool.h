@@ -11,7 +11,7 @@
 #define LIBCORK_CORK_MEMPOOL_H
 
 
-#include <libcork/config.h>
+#include <libcork/libcork_config.h>
 #include <libcork/core/api.h>
 #include <libcork/core/attributes.h>
 #include <libcork/core/callbacks.h>

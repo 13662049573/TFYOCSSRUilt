@@ -11,7 +11,7 @@
 #ifndef LIBCORK_CORE_ATTRIBUTES_H
 #define LIBCORK_CORE_ATTRIBUTES_H
 
-#include <libcork/config.h>
+#include <libcork/libcork_config.h>
 
 
 /*
