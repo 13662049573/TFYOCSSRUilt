@@ -1,5 +1,5 @@
 #if HAVE_CONFIG_H
-#include "config.h"
+#include "libev_config.h"
 #endif
 #include "maxminddb.h"
 #include "maxminddb-compat-util.h"

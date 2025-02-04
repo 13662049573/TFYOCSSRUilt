@@ -45,7 +45,7 @@
 #include <libcork/core.h>
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "libev_config.h"
 #endif
 
 #include "http.h"

@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------
  */
 
-#include "libcork/config.h"
+#include "libcork/libcork_config.h"
 #include "libcork/core/api.h"
 
 

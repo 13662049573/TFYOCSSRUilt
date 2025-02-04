@@ -39,7 +39,7 @@
 #include <ancillary.h>
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "libev_config.h"
 #endif
 
 #include "netutils.h"

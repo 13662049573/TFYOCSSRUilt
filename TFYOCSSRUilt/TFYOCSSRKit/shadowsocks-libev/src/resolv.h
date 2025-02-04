@@ -27,7 +27,7 @@
 #define RESOLV_H
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "libev_config.h"
 #endif
 
 #include <stdint.h>

@@ -21,7 +21,7 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "libev_config.h"
 #endif
 
 #if defined(__linux__) && defined(HAVE_LINUX_RANDOM_H)

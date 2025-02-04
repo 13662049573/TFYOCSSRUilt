@@ -77,7 +77,9 @@ Pod::Spec.new do |spec|
         '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"',
         '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
         '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src"'
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src"',
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
+        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/src"'
       ].join(' '),
       'GCC_PREPROCESSOR_DEFINITIONS' => [
         'HAVE_CONFIG_H=1',
@@ -89,7 +91,8 @@ Pod::Spec.new do |spec|
     
     ss.preserve_paths = [
       'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**',
-      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include/**'
+      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include/**',
+      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include/**'
     ]
   end
   
@@ -111,6 +114,7 @@ Pod::Spec.new do |spec|
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libsodium/include"',
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit"'
@@ -119,7 +123,8 @@ Pod::Spec.new do |spec|
     'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"',
     'USER_HEADER_SEARCH_PATHS' => [
       '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"'
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
+      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include"'
     ].join(' ')
   }
 

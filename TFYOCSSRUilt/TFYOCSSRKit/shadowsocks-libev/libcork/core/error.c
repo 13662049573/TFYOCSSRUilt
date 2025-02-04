@@ -12,7 +12,7 @@
 #include <stdarg.h>
 #include <string.h>
 
-#include "libcork/config.h"
+#include "libcork/libcork_config.h"
 #include "libcork/core/allocator.h"
 #include "libcork/core/error.h"
 #include "libcork/ds/buffer.h"

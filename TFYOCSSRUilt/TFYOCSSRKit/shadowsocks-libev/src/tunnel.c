@@ -37,7 +37,7 @@
 #include <pthread.h>
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "libev_config.h"
 #endif
 
 #if defined(HAVE_SYS_IOCTL_H) && defined(HAVE_NET_IF_H) && defined(__linux__)
@@ -1144,8 +1144,10 @@ main(int argc, char **argv)
             FATAL("failed to resolve the provided hostname");
         }
         struct sockaddr *addr = (struct sockaddr *)storage;
-        init_udprelay(EV_A, local_addr, local_port, addr, get_sockaddr_len(addr),
-                tunnel_addr, mtu, crypto, server_pk, listen_ctx.timeout, iface);
+        
+        init_udprelay(EV_A, local_addr, local_port, addr, 
+                     get_sockaddr_len(addr), tunnel_addr.host, 
+                     mtu, crypto, listen_ctx.timeout, iface);
     }
 
     if (mode == UDP_ONLY) {

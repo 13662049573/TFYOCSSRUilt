@@ -22,7 +22,7 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include "config.h"
+#include "libev_config"
 #endif
 #ifdef __MINGW32__
 #include <windows.h>

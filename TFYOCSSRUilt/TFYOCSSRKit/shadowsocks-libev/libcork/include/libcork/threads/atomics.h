@@ -11,7 +11,7 @@
 #ifndef LIBCORK_THREADS_ATOMICS_H
 #define LIBCORK_THREADS_ATOMICS_H
 
-#include <libcork/config.h>
+#include <libcork/libcork_config.h>
 #include <libcork/core/types.h>
 
 /*-----------------------------------------------------------------------
