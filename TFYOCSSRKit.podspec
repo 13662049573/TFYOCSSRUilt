@@ -68,21 +68,18 @@ Pod::Spec.new do |spec|
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
     ]
     
-    # 添加依赖
     ss.dependency 'TFYOCSSRKit/libopenssl'
     ss.dependency 'TFYOCSSRKit/libsodium'
     
-    # 修改头文件搜索路径和编译配置
     ss.pod_target_xcconfig = {
       'HEADER_SEARCH_PATHS' => [
         '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"',
-        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
-        '"$(PODS_ROOT)/Headers/Public/TFYOCSSRKit"'
+        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"'
       ].join(' '),
       'GCC_PREPROCESSOR_DEFINITIONS' => [
         'HAVE_CONFIG_H=1',
-        'USE_CRYPTO_MBEDTLS=1'
+        'USE_CRYPTO_MBEDTLS=1',
+        'MBEDTLS_CONFIG_FILE=\\"mbedtls/mbedtls_config.h\\"'
       ].join(' ')
     }
     
@@ -90,6 +87,7 @@ Pod::Spec.new do |spec|
     ss.prefix_header_contents = <<-EOS
       #define HAVE_CONFIG_H 1
       #define USE_CRYPTO_MBEDTLS 1
+      #define MBEDTLS_CONFIG_FILE <mbedtls/mbedtls_config.h>
     EOS
   end
   

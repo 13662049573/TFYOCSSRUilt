@@ -80,10 +80,10 @@
         "TFYOCSSRKit/libsodium": []
       },
       "pod_target_xcconfig": {
-        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"$(PODS_ROOT)/Headers/Public/TFYOCSSRKit\"",
-        "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_CONFIG_H=1 USE_CRYPTO_MBEDTLS=1"
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include\"",
+        "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_CONFIG_H=1 USE_CRYPTO_MBEDTLS=1 MBEDTLS_CONFIG_FILE=\\\"mbedtls/mbedtls_config.h\\\""
       },
-      "prefix_header_contents": "#define HAVE_CONFIG_H 1\n#define USE_CRYPTO_MBEDTLS 1"
+      "prefix_header_contents": "#define HAVE_CONFIG_H 1\n#define USE_CRYPTO_MBEDTLS 1\n#define MBEDTLS_CONFIG_FILE <mbedtls/mbedtls_config.h>"
     },
     {
       "name": "Privoxy",
