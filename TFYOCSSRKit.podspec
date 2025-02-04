@@ -58,33 +58,12 @@ Pod::Spec.new do |spec|
   
   spec.subspec 'shadowsocks-libev' do |ss|
     ss.source_files = "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}"
-    ss.exclude_files = "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/config.h"
     ss.public_header_files = "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.h"
     ss.vendored_libraries = [
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedcrypto.a",
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedtls.a",
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
     ]
-    
-    ss.xcconfig = {
-      'HEADER_SEARCH_PATHS' => [
-        '$(inherited)',
-        '"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-        '"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
-        '"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src"'
-      ].join(' '),
-      'GCC_PREPROCESSOR_DEFINITIONS' => [
-        'MBEDTLS_CONFIG_FILE=\\"mbedtls/config.h\\"'
-      ].join(' ')
-    }
-    
-    ss.preserve_paths = [
-      "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls/config.h",
-      "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src/config.h"
-    ]
-    
-    ss.dependency 'TFYOCSSRKit/libsodium'
-    ss.dependency 'TFYOCSSRKit/libopenssl'
   end
   
   spec.subspec 'Privoxy' do |ss|
@@ -99,27 +78,13 @@ Pod::Spec.new do |spec|
 
   # 添加编译设置
   spec.xcconfig = {
-    'HEADER_SEARCH_PATHS' => [
-      '$(inherited)',
-      '"${PODS_ROOT}/Headers/Public"',
-      '"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-      '"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
-      '"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src"'
-    ].join(' '),
+    'HEADER_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/Headers/Public"',
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
-    'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"',
-    'GCC_PREPROCESSOR_DEFINITIONS' => [
-      '$(inherited)',
-      'MBEDTLS_CONFIG_FILE=\\"mbedtls/config.h\\"'
-    ].join(' ')
+    'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"'
   }
 
-  # 添加预编译头文件
-  spec.prefix_header_contents = <<-EOS
-    #include "mbedtls/config.h"
-  EOS
-  
-  # 保留所有配置文件
-  spec.preserve_paths = "TFYOCSSRUilt/TFYOCSSRKit/**/*config.h"
+  spec.pod_target_xcconfig = { 
+    'OTHER_CFLAGS' => '-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL'
+  }
 
 end

@@ -11,9 +11,7 @@ PODS:
   - TFYOCSSRKit/libopenssl (1.0.0)
   - TFYOCSSRKit/libsodium (1.0.0)
   - TFYOCSSRKit/Privoxy (1.0.0)
-  - TFYOCSSRKit/shadowsocks-libev (1.0.0):
-    - TFYOCSSRKit/libopenssl
-    - TFYOCSSRKit/libsodium
+  - TFYOCSSRKit/shadowsocks-libev (1.0.0)
 
 DEPENDENCIES:
   - TFYOCSSRKit (from `./`)
@@ -23,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  TFYOCSSRKit: 098f01333e7c8671c190355d8f2521812a76a466
+  TFYOCSSRKit: 60fbd58cc5934061ec47d7998b8d6b2d1a96a165
 
 PODFILE CHECKSUM: ce6406fef805695bb4ee2c38ac22bda0ff660084
 
