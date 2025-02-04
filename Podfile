@@ -11,7 +11,7 @@ install! 'cocoapods', :warn_for_unused_master_specs_repo => false
 
 target 'TFYOCSSRUilt' do
   # Pods for TFYOCSSRUilt
-  pod 'TFYOCSSRKit', :path => './TFYOCSSRKit'
+  pod 'TFYOCSSRKit', :path => './'
 end
 
 # 针对 M1 芯片的设置
@@ -33,3 +33,4 @@ post_install do |installer|
       end
     end
   end
+end

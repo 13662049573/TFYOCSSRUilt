@@ -1,0 +1,6 @@
+framework module TFYOCSSRKit {
+  umbrella header "TFYOCSSRKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

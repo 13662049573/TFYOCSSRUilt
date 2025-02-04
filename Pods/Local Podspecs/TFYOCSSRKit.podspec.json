@@ -1,0 +1,91 @@
+{
+  "name": "TFYOCSSRKit",
+  "version": "1.0.0",
+  "summary": "iOS SSR工具库",
+  "description": "这是一个iOS SSR工具库，提供了SSR相关的功能实现",
+  "homepage": "https://github.com/13662049573/TFYOCSSRUilt",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "田风有": "420144542@qq.com"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source": {
+    "git": "https://github.com/13662049573/TFYOCSSRUilt.git",
+    "tag": "1.0.0"
+  },
+  "source_files": "TFYOCSSRUilt/TFYOCSSRKit/TFYOCSSRKit.h",
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src\"",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/**\"",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MBEDTLS_CONFIG_FILE=\\\"mbedtls/config.h\\\""
+  },
+  "prefix_header_contents": "#include \"mbedtls/config.h\"",
+  "preserve_paths": "TFYOCSSRUilt/TFYOCSSRKit/**/*config.h",
+  "subspecs": [
+    {
+      "name": "Antinat",
+      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/Antinat/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/Antinat/**/*.h",
+      "vendored_libraries": "TFYOCSSRUilt/TFYOCSSRKit/Antinat/expat-lib/lib/libexpat.a"
+    },
+    {
+      "name": "libmaxminddb",
+      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/libmaxminddb/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/libmaxminddb/**/*.h"
+    },
+    {
+      "name": "libopenssl",
+      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/**/*.h",
+      "vendored_libraries": [
+        "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libcrypto.a",
+        "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libssl.a"
+      ]
+    },
+    {
+      "name": "libsodium",
+      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/libsodium/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/libsodium/**/*.h",
+      "vendored_libraries": "TFYOCSSRUilt/TFYOCSSRKit/libsodium/lib/libsodium_ios.a"
+    },
+    {
+      "name": "shadowsocks-libev",
+      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}",
+      "exclude_files": "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/config.h",
+      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.h",
+      "vendored_libraries": [
+        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedcrypto.a",
+        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedtls.a",
+        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"${PODS_ROOT}/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src\"",
+        "GCC_PREPROCESSOR_DEFINITIONS": "MBEDTLS_CONFIG_FILE=\\\"mbedtls/config.h\\\""
+      },
+      "preserve_paths": [
+        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls/config.h",
+        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src/config.h"
+      ],
+      "dependencies": {
+        "TFYOCSSRKit/libsodium": [],
+        "TFYOCSSRKit/libopenssl": []
+      }
+    },
+    {
+      "name": "Privoxy",
+      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/Privoxy/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/Privoxy/**/*.h"
+    }
+  ]
+}
