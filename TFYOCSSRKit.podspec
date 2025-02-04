@@ -48,6 +48,9 @@ Pod::Spec.new do |spec|
       "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libcrypto.a",
       "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libssl.a"
     ]
+    ss.pod_target_xcconfig = {
+      'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"'
+    }
   end
   
   spec.subspec 'libsodium' do |ss|
@@ -64,6 +67,14 @@ Pod::Spec.new do |spec|
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedtls.a",
       "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
     ]
+    ss.dependency 'TFYOCSSRKit/libopenssl'
+    ss.dependency 'TFYOCSSRKit/libsodium'
+    ss.pod_target_xcconfig = {
+      'HEADER_SEARCH_PATHS' => [
+        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+        '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"'
+      ].join(' ')
+    }
   end
   
   spec.subspec 'Privoxy' do |ss|
@@ -76,15 +87,30 @@ Pod::Spec.new do |spec|
   # 添加依赖
   spec.frameworks = "Foundation", "UIKit"
 
-  # 添加编译设置
+  # 修改编译设置，添加所有必要的头文件搜索路径
   spec.xcconfig = {
-    'HEADER_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/Headers/Public"',
+    'HEADER_SEARCH_PATHS' => [
+      '$(inherited)',
+      '"${PODS_ROOT}/Headers/Public"',
+      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
+      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"',
+      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libsodium/include"',
+      '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit"'
+    ].join(' '),
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"'
   }
 
+  # 添加编译标志
   spec.pod_target_xcconfig = { 
-    'OTHER_CFLAGS' => '-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL'
+    'OTHER_CFLAGS' => '-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL',
+    'GCC_PREPROCESSOR_DEFINITIONS' => [
+      'HAVE_CONFIG_H=1',
+      'USE_CRYPTO_OPENSSL=1',
+      'LIB_ONLY=1',
+      'UDPRELAY_LOCAL=1',
+      'MODULE_LOCAL=1'
+    ].join(' ')
   }
 
 end

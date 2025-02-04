@@ -14,7 +14,7 @@
 		36C572F22D5240A200857950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C571322D5240A200857950 /* Assets.xcassets */; };
 		36C572F42D5240A200857950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36C571352D5240A200857950 /* LaunchScreen.storyboard */; };
 		36C572F52D5240A200857950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36C571382D5240A200857950 /* Main.storyboard */; };
-		5B5F832B0F56A36C41E4D232 /* Pods_TFYOCSSRUilt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB37ECC4E262D1B2FE96DD1 /* Pods_TFYOCSSRUilt.framework */; };
+		BA7B1001DCBD8570FDB4FB11 /* Pods_TFYOCSSRUilt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4B8A93E8AD5D646C8A04DD /* Pods_TFYOCSSRUilt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +30,9 @@
 		36C5713A2D5240A200857950 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		36C5713B2D5240A200857950 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		36C5713C2D5240A200857950 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6DB37ECC4E262D1B2FE96DD1 /* Pods_TFYOCSSRUilt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFYOCSSRUilt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		867AF77E6E63F0142B3401B7 /* Pods-TFYOCSSRUilt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCSSRUilt.debug.xcconfig"; path = "Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt.debug.xcconfig"; sourceTree = "<group>"; };
-		B20904CA2CC6FCC32AE6A272 /* Pods-TFYOCSSRUilt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCSSRUilt.release.xcconfig"; path = "Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt.release.xcconfig"; sourceTree = "<group>"; };
+		C2475B92C73684F51962EC95 /* Pods-TFYOCSSRUilt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCSSRUilt.release.xcconfig"; path = "Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt.release.xcconfig"; sourceTree = "<group>"; };
+		C55047CE6CEAC38DCA34BEFE /* Pods-TFYOCSSRUilt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCSSRUilt.debug.xcconfig"; path = "Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt.debug.xcconfig"; sourceTree = "<group>"; };
+		DE4B8A93E8AD5D646C8A04DD /* Pods_TFYOCSSRUilt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFYOCSSRUilt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,20 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5F832B0F56A36C41E4D232 /* Pods_TFYOCSSRUilt.framework in Frameworks */,
+				BA7B1001DCBD8570FDB4FB11 /* Pods_TFYOCSSRUilt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A721442313AA8DF0AF97426 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B8A93E8AD5D646C8A04DD /* Pods_TFYOCSSRUilt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		363B3EB42D50D8D100BC628D = {
 			isa = PBXGroup;
 			children = (
 				36C5713D2D5240A200857950 /* TFYOCSSRUilt */,
 				363B3EBE2D50D8D100BC628D /* Products */,
 				622E64C123E4AE935FB6EB8E /* Pods */,
-				FE455591B1E02490EA0E52DD /* Frameworks */,
+				0A721442313AA8DF0AF97426 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,18 +94,10 @@
 		622E64C123E4AE935FB6EB8E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				867AF77E6E63F0142B3401B7 /* Pods-TFYOCSSRUilt.debug.xcconfig */,
-				B20904CA2CC6FCC32AE6A272 /* Pods-TFYOCSSRUilt.release.xcconfig */,
+				C55047CE6CEAC38DCA34BEFE /* Pods-TFYOCSSRUilt.debug.xcconfig */,
+				C2475B92C73684F51962EC95 /* Pods-TFYOCSSRUilt.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		FE455591B1E02490EA0E52DD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6DB37ECC4E262D1B2FE96DD1 /* Pods_TFYOCSSRUilt.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,11 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 363B3ED52D50D8D200BC628D /* Build configuration list for PBXNativeTarget "TFYOCSSRUilt" */;
 			buildPhases = (
-				13ECDA42CC621C1E3258B8E3 /* [CP] Check Pods Manifest.lock */,
+				58658591360468B9731B443F /* [CP] Check Pods Manifest.lock */,
 				363B3EB92D50D8D100BC628D /* Sources */,
 				363B3EBA2D50D8D100BC628D /* Frameworks */,
 				363B3EBB2D50D8D100BC628D /* Resources */,
-				CA89B319C0233AD7A4D3D23F /* [CP] Embed Pods Frameworks */,
+				42473AFD157AA256F8D3FB73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,7 +169,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13ECDA42CC621C1E3258B8E3 /* [CP] Check Pods Manifest.lock */ = {
+		42473AFD157AA256F8D3FB73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58658591360468B9731B443F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -189,23 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA89B319C0233AD7A4D3D23F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TFYOCSSRUilt/Pods-TFYOCSSRUilt-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -246,7 +246,7 @@
 /* Begin XCBuildConfiguration section */
 		363B3ED62D50D8D200BC628D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 867AF77E6E63F0142B3401B7 /* Pods-TFYOCSSRUilt.debug.xcconfig */;
+			baseConfigurationReference = C55047CE6CEAC38DCA34BEFE /* Pods-TFYOCSSRUilt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -282,7 +282,7 @@
 		};
 		363B3ED72D50D8D200BC628D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20904CA2CC6FCC32AE6A272 /* Pods-TFYOCSSRUilt.release.xcconfig */;
+			baseConfigurationReference = C2475B92C73684F51962EC95 /* Pods-TFYOCSSRUilt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

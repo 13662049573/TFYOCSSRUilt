@@ -25,12 +25,13 @@
     "UIKit"
   ],
   "xcconfig": {
-    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Public\"",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Public\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libsodium/include\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit\"",
     "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
     "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/**\""
   },
   "pod_target_xcconfig": {
-    "OTHER_CFLAGS": "-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL"
+    "OTHER_CFLAGS": "-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL",
+    "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_CONFIG_H=1 USE_CRYPTO_OPENSSL=1 LIB_ONLY=1 UDPRELAY_LOCAL=1 MODULE_LOCAL=1"
   },
   "subspecs": [
     {
@@ -51,7 +52,10 @@
       "vendored_libraries": [
         "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libcrypto.a",
         "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libssl.a"
-      ]
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include\""
+      }
     },
     {
       "name": "libsodium",
@@ -67,7 +71,14 @@
         "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedcrypto.a",
         "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedtls.a",
         "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
-      ]
+      ],
+      "dependencies": {
+        "TFYOCSSRKit/libopenssl": [],
+        "TFYOCSSRKit/libsodium": []
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include\""
+      }
     },
     {
       "name": "Privoxy",
