@@ -25,23 +25,19 @@
     "UIKit"
   ],
   "xcconfig": {
-    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Public\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libsodium/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit\"",
-    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
-    "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/**\"",
-    "USER_HEADER_SEARCH_PATHS": "\"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include\""
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Public\" \"${SRCROOT}/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${SRCROOT}/TFYOCSSRKit/shadowsocks-libev/libipset/include\" \"${SRCROOT}/TFYOCSSRKit/libopenssl/include\" \"${SRCROOT}/TFYOCSSRKit/libsodium/include\" \"${SRCROOT}/TFYOCSSRKit\""
   },
   "pod_target_xcconfig": {
     "OTHER_CFLAGS": "-DHAVE_CONFIG_H -DUSE_CRYPTO_OPENSSL -DLIB_ONLY -DUDPRELAY_LOCAL -DMODULE_LOCAL -DUSE_CRYPTO_MBEDTLS",
     "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_CONFIG_H=1 USE_CRYPTO_OPENSSL=1 USE_CRYPTO_MBEDTLS=1 LIB_ONLY=1 UDPRELAY_LOCAL=1 MODULE_LOCAL=1",
-    "CLANG_ENABLE_MODULES": "NO",
-    "HEADER_SEARCH_PATHS": "$(inherited) \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\""
+    "CLANG_ENABLE_MODULES": "NO"
   },
   "subspecs": [
     {
       "name": "Antinat",
-      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/Antinat/**/*.{h,m,c}",
-      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/Antinat/**/*.h",
-      "vendored_libraries": "TFYOCSSRUilt/TFYOCSSRKit/Antinat/expat-lib/lib/libexpat.a"
+      "source_files": "TFYOCSSRKit/Antinat/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRKit/Antinat/**/*.h",
+      "vendored_libraries": "TFYOCSSRKit/Antinat/expat-lib/lib/libexpat.a"
     },
     {
       "name": "libmaxminddb",
@@ -50,45 +46,46 @@
     },
     {
       "name": "libopenssl",
-      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/**/*.{h,m,c}",
-      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/**/*.h",
+      "source_files": "TFYOCSSRKit/libopenssl/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRKit/libopenssl/**/*.h",
       "vendored_libraries": [
-        "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libcrypto.a",
-        "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libssl.a"
+        "TFYOCSSRKit/libopenssl/lib/libcrypto.a",
+        "TFYOCSSRKit/libopenssl/lib/libssl.a"
       ],
       "pod_target_xcconfig": {
-        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include\""
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TFYOCSSRKit/libopenssl/include\""
       }
     },
     {
       "name": "libsodium",
-      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/libsodium/**/*.{h,m,c}",
-      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/libsodium/**/*.h",
-      "vendored_libraries": "TFYOCSSRUilt/TFYOCSSRKit/libsodium/lib/libsodium_ios.a"
+      "source_files": "TFYOCSSRKit/libsodium/**/*.{h,m,c}",
+      "public_header_files": "TFYOCSSRKit/libsodium/**/*.h",
+      "vendored_libraries": "TFYOCSSRKit/libsodium/lib/libsodium_ios.a",
+      "preserve_paths": [
+        "TFYOCSSRKit/libsodium/include/**",
+        "TFYOCSSRKit/libsodium/lib/**"
+      ]
     },
     {
       "name": "shadowsocks-libev",
-      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}",
-      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.h",
-      "vendored_libraries": [
-        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedcrypto.a",
-        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedtls.a",
-        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
+      "source_files": [
+        "TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}",
+        "TFYOCSSRKit/shadowsocks-libev/libev_config.h",
+        "TFYOCSSRKit/shadowsocks-libev/libev/*.{h,c}"
+      ],
+      "public_header_files": "TFYOCSSRKit/shadowsocks-libev/**/*.h",
+      "preserve_paths": [
+        "TFYOCSSRKit/shadowsocks-libev/libcork/include/**",
+        "TFYOCSSRKit/shadowsocks-libev/libipset/include/**",
+        "TFYOCSSRKit/shadowsocks-libev/libev_config.h",
+        "TFYOCSSRKit/shadowsocks-libev/libev/**",
+        "TFYOCSSRKit/shadowsocks-libev/src/include/**"
       ],
       "dependencies": {
         "TFYOCSSRKit/libopenssl": [],
         "TFYOCSSRKit/libsodium": []
       },
-      "pod_target_xcconfig": {
-        "HEADER_SEARCH_PATHS": "\"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include\" \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/src\"",
-        "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_CONFIG_H=1 USE_CRYPTO_MBEDTLS=1 MBEDTLS_CONFIG_FILE=<mbedtls/mbedtls_config.h>",
-        "OTHER_CFLAGS": "-include \"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls/mbedtls_config.h\""
-      },
-      "preserve_paths": [
-        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**",
-        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include/**",
-        "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include/**"
-      ]
+      "compiler_flags": "-DHAVE_CONFIG_H"
     },
     {
       "name": "Privoxy",

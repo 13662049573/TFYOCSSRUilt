@@ -31,9 +31,9 @@ Pod::Spec.new do |spec|
  
   # 添加子规范来分别包含不同模块
   spec.subspec 'Antinat' do |ss|
-    ss.source_files = "TFYOCSSRUilt/TFYOCSSRKit/Antinat/**/*.{h,m,c}"
-    ss.public_header_files = "TFYOCSSRUilt/TFYOCSSRKit/Antinat/**/*.h"
-    ss.vendored_libraries = "TFYOCSSRUilt/TFYOCSSRKit/Antinat/expat-lib/lib/libexpat.a"
+    ss.source_files = "TFYOCSSRKit/Antinat/**/*.{h,m,c}"
+    ss.public_header_files = "TFYOCSSRKit/Antinat/**/*.h"
+    ss.vendored_libraries = "TFYOCSSRKit/Antinat/expat-lib/lib/libexpat.a"
   end
   
   spec.subspec 'libmaxminddb' do |ss|
@@ -42,58 +42,49 @@ Pod::Spec.new do |spec|
   end
   
   spec.subspec 'libopenssl' do |ss|
-    ss.source_files = "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/**/*.{h,m,c}"
-    ss.public_header_files = "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/**/*.h"
+    ss.source_files = "TFYOCSSRKit/libopenssl/**/*.{h,m,c}"
+    ss.public_header_files = "TFYOCSSRKit/libopenssl/**/*.h"
     ss.vendored_libraries = [
-      "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libcrypto.a",
-      "TFYOCSSRUilt/TFYOCSSRKit/libopenssl/lib/libssl.a"
+      "TFYOCSSRKit/libopenssl/lib/libcrypto.a",
+      "TFYOCSSRKit/libopenssl/lib/libssl.a"
     ]
     ss.pod_target_xcconfig = {
-      'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/TFYOCSSRKit/TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"'
+      'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/TFYOCSSRKit/libopenssl/include"'
     }
   end
   
   spec.subspec 'libsodium' do |ss|
-    ss.source_files = "TFYOCSSRUilt/TFYOCSSRKit/libsodium/**/*.{h,m,c}"
-    ss.public_header_files = "TFYOCSSRUilt/TFYOCSSRKit/libsodium/**/*.h"
-    ss.vendored_libraries = "TFYOCSSRUilt/TFYOCSSRKit/libsodium/lib/libsodium_ios.a"
+    ss.source_files = "TFYOCSSRKit/libsodium/**/*.{h,m,c}"
+    ss.public_header_files = "TFYOCSSRKit/libsodium/**/*.h"
+    ss.vendored_libraries = "TFYOCSSRKit/libsodium/lib/libsodium_ios.a"
+    
+    ss.preserve_paths = [
+      'TFYOCSSRKit/libsodium/include/**',
+      'TFYOCSSRKit/libsodium/lib/**'
+    ]
   end
   
   spec.subspec 'shadowsocks-libev' do |ss|
-    ss.source_files = "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}"
-    ss.public_header_files = "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/**/*.h"
-    ss.vendored_libraries = [
-      "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedcrypto.a",
-      "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedtls.a",
-      "TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/lib/libmbedx509.a"
+    ss.source_files = [
+      "TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}",
+      "TFYOCSSRKit/shadowsocks-libev/libev_config.h",
+      "TFYOCSSRKit/shadowsocks-libev/libev/*.{h,c}"
+    ]
+    
+    ss.public_header_files = "TFYOCSSRKit/shadowsocks-libev/**/*.h"
+    
+    ss.preserve_paths = [
+      'TFYOCSSRKit/shadowsocks-libev/libcork/include/**',
+      'TFYOCSSRKit/shadowsocks-libev/libipset/include/**',
+      'TFYOCSSRKit/shadowsocks-libev/libev_config.h',
+      'TFYOCSSRKit/shadowsocks-libev/libev/**',
+      'TFYOCSSRKit/shadowsocks-libev/src/include/**'
     ]
     
     ss.dependency 'TFYOCSSRKit/libopenssl'
     ss.dependency 'TFYOCSSRKit/libsodium'
     
-    ss.pod_target_xcconfig = {
-      'HEADER_SEARCH_PATHS' => [
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/include"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/src"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
-        '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/src"'
-      ].join(' '),
-      'GCC_PREPROCESSOR_DEFINITIONS' => [
-        'HAVE_CONFIG_H=1',
-        'USE_CRYPTO_MBEDTLS=1',
-        'MBEDTLS_CONFIG_FILE=<mbedtls/mbedtls_config.h>'
-      ].join(' '),
-      'OTHER_CFLAGS' => '-include "${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls/mbedtls_config.h"'
-    }
-    
-    ss.preserve_paths = [
-      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/**',
-      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include/**',
-      'TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include/**'
-    ]
+    ss.compiler_flags = '-DHAVE_CONFIG_H'
   end
   
   spec.subspec 'Privoxy' do |ss|
@@ -107,26 +98,19 @@ Pod::Spec.new do |spec|
   spec.frameworks = "Foundation", "UIKit"
 
   # 修改全局编译设置
-  spec.xcconfig = {
+  base_config = {
     'HEADER_SEARCH_PATHS' => [
       '$(inherited)',
       '"${PODS_ROOT}/Headers/Public"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libopenssl/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/libsodium/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit"'
-    ].join(' '),
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
-    'LIBRARY_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/**"',
-    'USER_HEADER_SEARCH_PATHS' => [
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libipset/include"'
+      '"${SRCROOT}/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
+      '"${SRCROOT}/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
+      '"${SRCROOT}/TFYOCSSRKit/libopenssl/include"',
+      '"${SRCROOT}/TFYOCSSRKit/libsodium/include"',
+      '"${SRCROOT}/TFYOCSSRKit"'
     ].join(' ')
   }
+  
+  spec.xcconfig = base_config
 
   # 全局编译标志
   spec.pod_target_xcconfig = { 
@@ -139,12 +123,7 @@ Pod::Spec.new do |spec|
       'UDPRELAY_LOCAL=1',
       'MODULE_LOCAL=1'
     ].join(' '),
-    'CLANG_ENABLE_MODULES' => 'NO',
-    'HEADER_SEARCH_PATHS' => [
-      '$(inherited)',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include"',
-      '"${SRCROOT}/../TFYOCSSRUilt/TFYOCSSRKit/shadowsocks-libev/libmbedtls/include/mbedtls"'
-    ].join(' ')
+    'CLANG_ENABLE_MODULES' => 'NO'
   }
 
 end
