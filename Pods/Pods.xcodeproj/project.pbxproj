@@ -320,7 +320,6 @@
 		EC4B5A454B0ED4740B7099C76FFD6F90 /* udns_XtoX.c in Sources */ = {isa = PBXBuildFile; fileRef = 607B9F70890AEE7DF4BCEB8B145A8367 /* udns_XtoX.c */; settings = {COMPILER_FLAGS = "-DHAVE_CONFIG_H -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EC862A884FCF611A8FD38C90CF4BE4AF /* conf.h in Headers */ = {isa = PBXBuildFile; fileRef = 23BA0DA8FD39F1133A7AC7B767A5857D /* conf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED0AF0892AA315E49805C8ACA0DC6541 /* fmemopen.c in Sources */ = {isa = PBXBuildFile; fileRef = A47D0E47FDD84D2E5CF1A1D60CC999B8 /* fmemopen.c */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		ED5FB0D3F0267534AA034D472A932866 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 0CA87171FD28FE66391E0E775950F8B2 /* version.c */; settings = {COMPILER_FLAGS = "-DHAVE_CONFIG_H -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EDDA93B517A8218D0DAAE48321DAA28B /* crypto_stream_xchacha20.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C285A021A9379B78E09DEA456B5A60 /* crypto_stream_xchacha20.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE0130927F2684C7317B971F631E6090 /* u128.h in Headers */ = {isa = PBXBuildFile; fileRef = 7414FFBD06E57241B9B8ECB77CECA815 /* u128.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE2BC2C147E9FBBCECC625944F0AF2D8 /* rand.h in Headers */ = {isa = PBXBuildFile; fileRef = 18828B452CE3E2D8BB8872BC93E2E668 /* rand.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -383,7 +382,6 @@
 		0B03E21A68E5E9CEB8E97C7C1E1DC554 /* api.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = api.h; sourceTree = "<group>"; };
 		0B407195AD7548D4C7836D327D030AAA /* json.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		0BAC413560FE19A1DCF1C138CCA4D6A8 /* crypto_hash_sha256.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = crypto_hash_sha256.h; sourceTree = "<group>"; };
-		0CA87171FD28FE66391E0E775950F8B2 /* version.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
 		0DACCC16B1D5A28F705C1B3EC511F6DD /* des.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
 		0F2D20059EE994FD08FD2BC2E0787194 /* crypto_kdf_blake2b.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = crypto_kdf_blake2b.h; sourceTree = "<group>"; };
 		1008857489BFBF2F74BD1D66ADA50EDA /* crypto_sign_edwards25519sha512batch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = crypto_sign_edwards25519sha512batch.h; sourceTree = "<group>"; };
@@ -1136,7 +1134,6 @@
 				6B142D9FF3FB87D1F56CED6AC22E1D55 /* mempool.c */,
 				F05CD87AD0870A6A371EC441CBBBFD89 /* timestamp.c */,
 				7F354DC9225919A7A37E0F9620034195 /* u128.c */,
-				0CA87171FD28FE66391E0E775950F8B2 /* version.c */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -1993,7 +1990,6 @@
 				EC4B5A454B0ED4740B7099C76FFD6F90 /* udns_XtoX.c in Sources */,
 				805EB59B57A09B33535D2B315951C805 /* udprelay.c in Sources */,
 				12ED7339889E72664781C05FF3B27D81 /* utils.c in Sources */,
-				ED5FB0D3F0267534AA034D472A932866 /* version.c in Sources */,
 				21DA72C3773E0C1E44C055F886E4A881 /* write.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
