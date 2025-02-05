@@ -81,6 +81,16 @@ Pod::Spec.new do |spec|
       'TFYOCSSRKit/shadowsocks-libev/src/include/**'
     ]
     
+    ss.pod_target_xcconfig = {
+      'HEADER_SEARCH_PATHS' => [
+        '$(inherited)',
+        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
+        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
+        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/src/include"',
+        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev"'
+      ].join(' ')
+    }
+    
     ss.dependency 'TFYOCSSRKit/libopenssl'
     ss.dependency 'TFYOCSSRKit/libsodium'
     

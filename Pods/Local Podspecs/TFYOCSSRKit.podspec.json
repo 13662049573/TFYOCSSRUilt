@@ -81,6 +81,9 @@
         "TFYOCSSRKit/shadowsocks-libev/libev/**",
         "TFYOCSSRKit/shadowsocks-libev/src/include/**"
       ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libipset/include\" \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/src/include\" \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev\""
+      },
       "dependencies": {
         "TFYOCSSRKit/libopenssl": [],
         "TFYOCSSRKit/libsodium": []
