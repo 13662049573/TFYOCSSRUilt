@@ -71,7 +71,8 @@
       "source_files": [
         "TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}",
         "TFYOCSSRKit/shadowsocks-libev/libev_config.h",
-        "TFYOCSSRKit/shadowsocks-libev/libev/*.{h,c}"
+        "TFYOCSSRKit/shadowsocks-libev/libev/*.{h,c}",
+        "TFYOCSSRKit/shadowsocks-libev/libcork/**/*.{h,c}"
       ],
       "public_header_files": "TFYOCSSRKit/shadowsocks-libev/**/*.h",
       "preserve_paths": [
@@ -81,8 +82,10 @@
         "TFYOCSSRKit/shadowsocks-libev/libev/**",
         "TFYOCSSRKit/shadowsocks-libev/src/include/**"
       ],
+      "header_mappings_dir": "TFYOCSSRKit/shadowsocks-libev",
       "pod_target_xcconfig": {
-        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libipset/include\" \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/src/include\" \"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev\""
+        "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev\" \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev/libcork/include\" \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev/libipset/include\" \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev/src/include\"",
+        "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_CONFIG_H=1"
       },
       "dependencies": {
         "TFYOCSSRKit/libopenssl": [],

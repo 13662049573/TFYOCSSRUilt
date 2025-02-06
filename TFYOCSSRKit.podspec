@@ -42,33 +42,84 @@ Pod::Spec.new do |spec|
   end
   
   spec.subspec 'libopenssl' do |ss|
-    ss.source_files = "TFYOCSSRKit/libopenssl/**/*.{h,m,c}"
-    ss.public_header_files = "TFYOCSSRKit/libopenssl/**/*.h"
-    ss.vendored_libraries = [
-      "TFYOCSSRKit/libopenssl/lib/libcrypto.a",
-      "TFYOCSSRKit/libopenssl/lib/libssl.a"
+    ss.source_files = [
+      "TFYOCSSRKit/libopenssl/include/**/*.h",
+      "TFYOCSSRKit/libopenssl/include/openssl/*.h"
     ]
+    
+    ss.public_header_files = [
+      "TFYOCSSRKit/libopenssl/include/**/*.h",
+      "TFYOCSSRKit/libopenssl/include/openssl/*.h"
+    ]
+    
+    # iOS 平台使用的库文件
+    ss.ios.vendored_libraries = [
+      "TFYOCSSRKit/libopenssl/lib/libcrypto_ios.a",
+      "TFYOCSSRKit/libopenssl/lib/libssl_ios.a"
+    ]
+    
+    # macOS 平台使用的库文件
+    ss.osx.vendored_libraries = [
+      "TFYOCSSRKit/libopenssl/lib/libcrypto_macos.a",
+      "TFYOCSSRKit/libopenssl/lib/libssl_macos.a"
+    ]
+    
+    ss.preserve_paths = [
+      'TFYOCSSRKit/libopenssl/include/**',
+      'TFYOCSSRKit/libopenssl/lib/**'
+    ]
+    
+    ss.header_mappings_dir = 'TFYOCSSRKit/libopenssl/include'
+    
     ss.pod_target_xcconfig = {
-      'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/TFYOCSSRKit/libopenssl/include"'
+      'HEADER_SEARCH_PATHS' => [
+        '$(inherited)',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/include"',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/include/openssl"'
+      ].join(' ')
     }
   end
   
   spec.subspec 'libsodium' do |ss|
-    ss.source_files = "TFYOCSSRKit/libsodium/**/*.{h,m,c}"
-    ss.public_header_files = "TFYOCSSRKit/libsodium/**/*.h"
-    ss.vendored_libraries = "TFYOCSSRKit/libsodium/lib/libsodium_ios.a"
+    ss.source_files = [
+      "TFYOCSSRKit/libsodium/include/**/*.h",
+      "TFYOCSSRKit/libsodium/include/sodium/*.h"
+    ]
+    
+    ss.public_header_files = [
+      "TFYOCSSRKit/libsodium/include/**/*.h",
+      "TFYOCSSRKit/libsodium/include/sodium/*.h"
+    ]
+    
+    # iOS 平台使用的库文件
+    ss.ios.vendored_libraries = "TFYOCSSRKit/libsodium/lib/libsodium_ios.a"
+    
+    # macOS 平台使用的库文件
+    ss.osx.vendored_libraries = "TFYOCSSRKit/libsodium/lib/libsodium_macos.a"
     
     ss.preserve_paths = [
       'TFYOCSSRKit/libsodium/include/**',
       'TFYOCSSRKit/libsodium/lib/**'
     ]
+    
+    ss.header_mappings_dir = 'TFYOCSSRKit/libsodium/include'
+    
+    ss.pod_target_xcconfig = {
+      'HEADER_SEARCH_PATHS' => [
+        '$(inherited)',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libsodium/include"',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libsodium/include/sodium"'
+      ].join(' ')
+    }
   end
   
   spec.subspec 'shadowsocks-libev' do |ss|
+    # 移除 libcork 子规范，直接在主规范中包含 libcork 文件
     ss.source_files = [
       "TFYOCSSRKit/shadowsocks-libev/**/*.{h,m,c}",
       "TFYOCSSRKit/shadowsocks-libev/libev_config.h",
-      "TFYOCSSRKit/shadowsocks-libev/libev/*.{h,c}"
+      "TFYOCSSRKit/shadowsocks-libev/libev/*.{h,c}",
+      "TFYOCSSRKit/shadowsocks-libev/libcork/**/*.{h,c}"  # 直接包含 libcork 文件
     ]
     
     ss.public_header_files = "TFYOCSSRKit/shadowsocks-libev/**/*.h"
@@ -81,14 +132,17 @@ Pod::Spec.new do |spec|
       'TFYOCSSRKit/shadowsocks-libev/src/include/**'
     ]
     
+    ss.header_mappings_dir = "TFYOCSSRKit/shadowsocks-libev"
+    
     ss.pod_target_xcconfig = {
       'HEADER_SEARCH_PATHS' => [
         '$(inherited)',
-        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
-        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
-        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev/src/include"',
-        '"${PODS_ROOT}/TFYOCSSRKit/shadowsocks-libev"'
-      ].join(' ')
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev"',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev/libcork/include"',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev/libipset/include"',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/shadowsocks-libev/src/include"'
+      ].join(' '),
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'HAVE_CONFIG_H=1'
     }
     
     ss.dependency 'TFYOCSSRKit/libopenssl'
