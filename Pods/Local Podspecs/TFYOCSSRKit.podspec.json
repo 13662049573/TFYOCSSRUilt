@@ -41,30 +41,87 @@
     },
     {
       "name": "libmaxminddb",
-      "source_files": "TFYOCSSRUilt/TFYOCSSRKit/libmaxminddb/**/*.{h,m,c}",
-      "public_header_files": "TFYOCSSRUilt/TFYOCSSRKit/libmaxminddb/**/*.h"
+      "source_files": [
+        "TFYOCSSRKit/libmaxminddb/include/**/*.h",
+        "TFYOCSSRKit/libmaxminddb/maxminddb_config.h",
+        "TFYOCSSRKit/libmaxminddb/maxminddb.h"
+      ],
+      "public_header_files": [
+        "TFYOCSSRKit/libmaxminddb/include/**/*.h",
+        "TFYOCSSRKit/libmaxminddb/maxminddb_config.h",
+        "TFYOCSSRKit/libmaxminddb/maxminddb.h"
+      ],
+      "ios": {
+        "vendored_libraries": "TFYOCSSRKit/libmaxminddb/lib/libmaxminddb_ios.a"
+      },
+      "osx": {
+        "vendored_libraries": "TFYOCSSRKit/libmaxminddb/lib/libmaxminddb_macos.a"
+      },
+      "preserve_paths": [
+        "TFYOCSSRKit/libmaxminddb/include/**",
+        "TFYOCSSRKit/libmaxminddb/lib/**"
+      ],
+      "header_mappings_dir": "TFYOCSSRKit/libmaxminddb",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libmaxminddb/include\" \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libmaxminddb\""
+      }
     },
     {
       "name": "libopenssl",
-      "source_files": "TFYOCSSRKit/libopenssl/**/*.{h,m,c}",
-      "public_header_files": "TFYOCSSRKit/libopenssl/**/*.h",
-      "vendored_libraries": [
-        "TFYOCSSRKit/libopenssl/lib/libcrypto.a",
-        "TFYOCSSRKit/libopenssl/lib/libssl.a"
+      "source_files": [
+        "TFYOCSSRKit/libopenssl/include/**/*.h",
+        "TFYOCSSRKit/libopenssl/include/openssl/*.h",
+        "TFYOCSSRKit/libopenssl/lib/**/*.{h,c}"
       ],
+      "public_header_files": [
+        "TFYOCSSRKit/libopenssl/include/**/*.h",
+        "TFYOCSSRKit/libopenssl/include/openssl/*.h"
+      ],
+      "ios": {
+        "vendored_libraries": [
+          "TFYOCSSRKit/libopenssl/lib/libcrypto_ios.a",
+          "TFYOCSSRKit/libopenssl/lib/libssl_ios.a"
+        ]
+      },
+      "osx": {
+        "vendored_libraries": [
+          "TFYOCSSRKit/libopenssl/lib/libcrypto_macos.a",
+          "TFYOCSSRKit/libopenssl/lib/libssl_macos.a"
+        ]
+      },
+      "preserve_paths": [
+        "TFYOCSSRKit/libopenssl/include/**",
+        "TFYOCSSRKit/libopenssl/lib/**"
+      ],
+      "header_mappings_dir": "TFYOCSSRKit/libopenssl",
       "pod_target_xcconfig": {
-        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TFYOCSSRKit/libopenssl/include\""
+        "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/include\" \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/include/openssl\" \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/lib\""
       }
     },
     {
       "name": "libsodium",
-      "source_files": "TFYOCSSRKit/libsodium/**/*.{h,m,c}",
-      "public_header_files": "TFYOCSSRKit/libsodium/**/*.h",
-      "vendored_libraries": "TFYOCSSRKit/libsodium/lib/libsodium_ios.a",
+      "source_files": [
+        "TFYOCSSRKit/libsodium/include/**/*.h",
+        "TFYOCSSRKit/libsodium/include/sodium/*.h"
+      ],
+      "public_header_files": [
+        "TFYOCSSRKit/libsodium/include/**/*.h",
+        "TFYOCSSRKit/libsodium/include/sodium/*.h"
+      ],
+      "ios": {
+        "vendored_libraries": "TFYOCSSRKit/libsodium/lib/libsodium_ios.a"
+      },
+      "osx": {
+        "vendored_libraries": "TFYOCSSRKit/libsodium/lib/libsodium_macos.a"
+      },
       "preserve_paths": [
         "TFYOCSSRKit/libsodium/include/**",
         "TFYOCSSRKit/libsodium/lib/**"
-      ]
+      ],
+      "header_mappings_dir": "TFYOCSSRKit/libsodium/include",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libsodium/include\" \"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libsodium/include/sodium\""
+      }
     },
     {
       "name": "shadowsocks-libev",

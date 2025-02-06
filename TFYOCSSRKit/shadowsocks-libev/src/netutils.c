@@ -26,7 +26,7 @@
 #include <udns.h>
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "libev_config.h"
 #endif
 
 #include <sys/socket.h>

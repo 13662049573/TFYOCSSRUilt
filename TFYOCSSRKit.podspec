@@ -37,14 +37,45 @@ Pod::Spec.new do |spec|
   end
   
   spec.subspec 'libmaxminddb' do |ss|
-    ss.source_files = "TFYOCSSRUilt/TFYOCSSRKit/libmaxminddb/**/*.{h,m,c}"
-    ss.public_header_files = "TFYOCSSRUilt/TFYOCSSRKit/libmaxminddb/**/*.h"
+    ss.source_files = [
+      "TFYOCSSRKit/libmaxminddb/include/**/*.h",
+      "TFYOCSSRKit/libmaxminddb/maxminddb_config.h",
+      "TFYOCSSRKit/libmaxminddb/maxminddb.h"
+    ]
+    
+    ss.public_header_files = [
+      "TFYOCSSRKit/libmaxminddb/include/**/*.h",
+      "TFYOCSSRKit/libmaxminddb/maxminddb_config.h",
+      "TFYOCSSRKit/libmaxminddb/maxminddb.h"
+    ]
+    
+    # iOS 平台使用的库文件
+    ss.ios.vendored_libraries = "TFYOCSSRKit/libmaxminddb/lib/libmaxminddb_ios.a"
+    
+    # macOS 平台使用的库文件
+    ss.osx.vendored_libraries = "TFYOCSSRKit/libmaxminddb/lib/libmaxminddb_macos.a"
+    
+    ss.preserve_paths = [
+      'TFYOCSSRKit/libmaxminddb/include/**',
+      'TFYOCSSRKit/libmaxminddb/lib/**'
+    ]
+    
+    ss.header_mappings_dir = 'TFYOCSSRKit/libmaxminddb'
+    
+    ss.pod_target_xcconfig = {
+      'HEADER_SEARCH_PATHS' => [
+        '$(inherited)',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libmaxminddb/include"',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libmaxminddb"'
+      ].join(' ')
+    }
   end
   
   spec.subspec 'libopenssl' do |ss|
     ss.source_files = [
       "TFYOCSSRKit/libopenssl/include/**/*.h",
-      "TFYOCSSRKit/libopenssl/include/openssl/*.h"
+      "TFYOCSSRKit/libopenssl/include/openssl/*.h",
+      "TFYOCSSRKit/libopenssl/lib/**/*.{h,c}"
     ]
     
     ss.public_header_files = [
@@ -69,13 +100,14 @@ Pod::Spec.new do |spec|
       'TFYOCSSRKit/libopenssl/lib/**'
     ]
     
-    ss.header_mappings_dir = 'TFYOCSSRKit/libopenssl/include'
+    ss.header_mappings_dir = 'TFYOCSSRKit/libopenssl'
     
     ss.pod_target_xcconfig = {
       'HEADER_SEARCH_PATHS' => [
         '$(inherited)',
         '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/include"',
-        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/include/openssl"'
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/include/openssl"',
+        '"$(PODS_TARGET_SRCROOT)/TFYOCSSRKit/libopenssl/lib"'
       ].join(' ')
     }
   end

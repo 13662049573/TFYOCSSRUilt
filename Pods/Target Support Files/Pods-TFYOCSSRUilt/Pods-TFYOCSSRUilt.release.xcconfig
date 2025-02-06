@@ -3,7 +3,7 @@ FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/TFYOCSSRK
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/TFYOCSSRKit/TFYOCSSRKit.framework/Headers" $(inherited) "${PODS_ROOT}/Headers/Public" "${SRCROOT}/TFYOCSSRKit/shadowsocks-libev/libcork/include" "${SRCROOT}/TFYOCSSRKit/shadowsocks-libev/libipset/include" "${SRCROOT}/TFYOCSSRKit/libopenssl/include" "${SRCROOT}/TFYOCSSRKit/libsodium/include" "${SRCROOT}/TFYOCSSRKit"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../TFYOCSSRKit/Antinat/expat-lib/lib" "${PODS_ROOT}/../TFYOCSSRKit/libopenssl/lib" "${PODS_ROOT}/../TFYOCSSRKit/libsodium/lib"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../TFYOCSSRKit/Antinat/expat-lib/lib" "${PODS_ROOT}/../TFYOCSSRKit/libmaxminddb/lib" "${PODS_ROOT}/../TFYOCSSRKit/libopenssl/lib" "${PODS_ROOT}/../TFYOCSSRKit/libsodium/lib"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/TFYOCSSRKit/TFYOCSSRKit.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/TFYOCSSRKit"
 OTHER_LDFLAGS = $(inherited) -ObjC -framework "Foundation" -framework "TFYOCSSRKit" -framework "UIKit"
 OTHER_MODULE_VERIFIER_FLAGS = $(inherited) "-F${PODS_CONFIGURATION_BUILD_DIR}/TFYOCSSRKit"
